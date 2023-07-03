@@ -84,7 +84,6 @@ DATETIME_PATTERN = "^[0-9]{4}-[0-9]{2}-[0-9]{2}(T[0-9]{2}:[0-9]{2}:[0-9]{2})?$"
 
 @pytest.mark.default_timeout(30)
 class TestSpec(BaseTest):
-
     spec_cache: ConnectorSpecification = None
     previous_spec_cache: ConnectorSpecification = None
 
@@ -583,7 +582,6 @@ class TestConnection(BaseTest):
 
 @pytest.mark.default_timeout(30)
 class TestDiscovery(BaseTest):
-
     VALID_TYPES = {"null", "string", "number", "integer", "boolean", "object", "array"}
     VALID_AIRBYTE_TYPES = {"timestamp_with_timezone", "timestamp_without_timezone", "integer"}
     VALID_FORMATS = {"date-time", "date"}

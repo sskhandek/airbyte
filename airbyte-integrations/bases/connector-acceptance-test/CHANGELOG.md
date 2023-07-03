@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.12.0
+Update test_incremental.test_two_sequential_reads to be unaware of the contents of the state message. This is to support connectors that have a custom implementation of a cursor.
+
 ## 0.11.1
 Test connector image labels and make sure they are set correctly and match metadata.yaml.
 

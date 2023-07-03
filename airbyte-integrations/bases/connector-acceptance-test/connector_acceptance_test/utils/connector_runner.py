@@ -102,7 +102,6 @@ class ConnectorRunner:
         return output
 
     def run(self, cmd, config=None, state=None, catalog=None, raise_container_error: bool = True, **kwargs) -> Iterable[AirbyteMessage]:
-
         self._runs += 1
         volumes = self._prepare_volumes(config, state, catalog)
         logging.debug(f"Docker run {self._image}: \n{cmd}\n" f"input: {self.input_folder}\noutput: {self.output_folder}")
@@ -139,7 +138,6 @@ class ConnectorRunner:
         exception = ""
         line = ""
         for chunk in container.logs(stdout=True, stderr=True, stream=True, follow=True):
-
             buffer += chunk
             while True:
                 # every chunk can include several lines
