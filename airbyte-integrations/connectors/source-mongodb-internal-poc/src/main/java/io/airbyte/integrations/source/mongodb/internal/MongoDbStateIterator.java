@@ -49,6 +49,7 @@ class MongoDbStateIterator implements Iterator<AirbyteMessage> {
    * final message will be returned.
    */
   private boolean finalStateNext = false;
+  private final int totalCount = 0;
 
   MongoDbStateIterator(final MongoCursor<Document> iter, final ConfiguredAirbyteStream stream, final Instant emittedAt, final int batchSize) {
     this.iter = iter;
@@ -64,7 +65,7 @@ class MongoDbStateIterator implements Iterator<AirbyteMessage> {
       if (iter.hasNext()) {
         return true;
       }
-    } catch (MongoException e) {
+    } catch (final MongoException e) {
       // If hasNext throws an exception, log it and then treat it as if hasNext returned false.
       LOGGER.info("hasNext threw an exception: {}", e.getMessage(), e);
     }
